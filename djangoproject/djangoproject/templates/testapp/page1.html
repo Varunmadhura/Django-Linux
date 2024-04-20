@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django Scenario-1</title>
+  </head>
+  <body>
+    <h1>Django Test Scenario-1</h1>
+    <form action="{% url 'execute_command' %}" method="POST">
+      {% csrf_token %}
+      <label for="hostname">Server ip:</label>
+      <input id="hostname" type="text" name="hostname" value="" placeholder="xxx.xxx.xxx.xxx">
+      <br>
+      <br>
+      <label for="username">Username:</label>
+      <input id="username" type="text" name="" value="" required>
+      <br>
+      <br>
+      <label for="password">Password:</label>
+      <input id="password" type="text" name="" value="" required>
+      <br>
+      <br>
+      <label for="command">Unix Command Input:</label>
+      <input id="command" type="text" name="" value="" required>
+      <br>
+      <br>
+      <input type="submit" name="" value="Submit">
+
+      <div class="container">
+        <div class="jumbotron">
+          <div class="container">
+            {% csrf_token %}
+            {{ output }}
+            <h1>Unix Command Output :</h1>
+            <textarea style="width : 100%" name="name" rows="30" cols="30"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+
+    </form>
+  </body>
+</html>
